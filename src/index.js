@@ -1,41 +1,104 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Carousel } from 'react-responsive-carousel';
 // import App from './App';
+import FormField from './FormField';
 import * as serviceWorker from './serviceWorker';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './index.css';
 
-class ReactClass extends Component {
-  render() {
-    return (
-      <div className="cnt">
-        <Carousel>
-          <div className="img">
-            <img
-              alt="Harry Potter 1"
-              src="https://www.cerodosbe.com/uploads/s1/10/04/73/56/el-universo-harry-potter-aterriza-a-lo-grande-en-nueva-york_15_970x597.jpeg"
-            />
-            <p className="legend">Legend 1</p>
-          </div>
-          <div className="img">
-            <img
-              alt="Harry Potter 2"
-              src="https://cdn.pocket-lint.com/r/s/970x/assets/images/150401-tv-feature-harry-potter-image1-vpdnsqfrou-jpg.webp?v1"
-            />
-            <p className="legend">Legend 2</p>
-          </div>
-        </Carousel>
+ReactDOM.render(
+  <form id="form">
+    <h1 id="header">Registro Personal</h1>
+    <div id="content">
+      <FormField
+        fielContentId="name"
+        fieldName="Primer Nombre"
+        placeholderName="Primer Nombre"
+        borderRadius="input-group"
+        spanClass="input-group-text input-group input-group-prepend"
+        iconName="icon fa fa-user"
+        inputType="text"
+        inputClass="form-control input-group"
+      />
+
+      <FormField
+        fielContentId="last-name"
+        fieldName="Apellido"
+        placeholderName="Apellido"
+        borderRadius="input-group"
+        spanClass="input-group-text input-group input-group-prepend"
+        iconName="icon fa fa-user"
+        inputType="text"
+        inputClass="form-control input-group"
+      />
+
+      <FormField
+        fielContentId="email"
+        fieldName="Correo Electrónico"
+        placeholderName="Correo Electrónico"
+        borderRadius="input-group"
+        spanClass="input-group-text input-group input-group-prepend"
+        iconName="icon fa fa-envelope"
+        inputType="text"
+        inputClass="form-control input-group"
+      />
+
+      <FormField
+        fielContentId="password"
+        fieldName="Contraseña"
+        placeholderName="Contraseña"
+        borderRadius="input-group"
+        spanClass="input-group-text input-group input-group-prepend"
+        iconName="icon fa fa-key"
+        inputType="password"
+        inputClass="form-control input-group"
+      />
+
+      <FormField
+        fielContentId="direction"
+        fieldName="Dirección"
+        placeholderName="Dirección"
+        borderRadius="input-group"
+        spanClass="input-group-text input-group input-group-prepend"
+        iconName="icon fa fa-home"
+        inputType="text"
+        inputClass="form-control input-group"
+      />
+
+      <FormField
+        fielContentId="city"
+        fieldName="Ciudad"
+        divInputId="city"
+        inputType="text"
+        inputClass="form-control"
+      />
+
+      <FormField
+        fielContentId="postcode"
+        fieldName="Código Postal"
+        divInputId="postcode"
+        inputType="text"
+        inputClass="form-control"
+      />
+    </div>
+    <div className="form-footer">
+      <div id="terms-accept">
+        <input id="check" type="checkbox" />
+        <label htmlFor="acepto-terminos">
+          {' '}
+          Estoy de acuerdo con el registro de datos personales
+        </label>
       </div>
-    );
-  }
-}
+      <input
+        id="save-button"
+        className="form-control"
+        type="button"
+        value="Guardar"
+      />
+    </div>
+  </form>,
+  document.querySelector('#root'),
+);
 
-ReactDOM.render(<ReactClass />, document.querySelector('#content'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
