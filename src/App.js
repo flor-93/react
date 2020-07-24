@@ -2,25 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    displayMessage: false,
+  };
+  render() {
+    return (
+      <div
+        className="App"
+        onClick={() => this.setState({ displayMessage: true })}
+      >
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            <b>Welcome to React</b>
+          </p>
+        </header>
+        <div className="div-body">
+          {this.state.displayMessage ? 'Este es el estado del componente' : ''}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
