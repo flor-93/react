@@ -2,10 +2,21 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+class Mensaje extends React.Component {
+  render() {
+    return this.props.shouldDisplayMessage
+      ? 'Este es el estado del componente, entregado desde el padre.'
+      : '';
+  }
+}
+
 class App extends React.Component {
-  state = {
-    displayMessage: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayMessage: false,
+    };
+  }
   render() {
     return (
       <div
@@ -19,7 +30,7 @@ class App extends React.Component {
           </p>
         </header>
         <div className="div-body">
-          {this.state.displayMessage ? 'Este es el estado del componente' : ''}
+          <Mensaje shouldDisplayMessage={this.state.displayMessage} />
         </div>
       </div>
     );

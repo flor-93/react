@@ -17,7 +17,9 @@ class Text extends React.Component {
         className="div-body"
         onClick={() => this.setState({ displayMessage: true })}
       >
-        {this.state.displayMessage ? 'Este es el estado del componente' : ''}
+        {this.state.displayMessage
+          ? 'Este es el estado del componente, entregado desde el padre.'
+          : ''}
       </div>
     );
   }
