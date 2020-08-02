@@ -6,25 +6,6 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
-class Text extends React.Component {
-  state = {
-    displayMessage: false,
-  };
-
-  render() {
-    return (
-      <div
-        className="div-body"
-        onClick={() => this.setState({ displayMessage: true })}
-      >
-        {this.state.displayMessage
-          ? 'Este es el estado del componente, entregado desde el padre.'
-          : ''}
-      </div>
-    );
-  }
-}
-
 ReactDOM.render(<App />, document.querySelector('#root'));
 
 serviceWorker.unregister();
